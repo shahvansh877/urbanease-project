@@ -11,8 +11,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://urbanease-final.vercel.app/",
-    process.env.CLIENT_URL
+    "https://urbanease-final.vercel.app"
   ],
   credentials: true,
 }));
