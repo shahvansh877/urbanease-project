@@ -157,7 +157,7 @@ export function BookingPage() {
     <div className="min-h-screen bg-gray-50">
       <Navigation />
 
-      <div className="max-w-7xl mx-auto px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
         {/* Header */}
         <div className="mb-8">
           <button
@@ -167,7 +167,7 @@ export function BookingPage() {
             <ArrowLeft className="w-4 h-4" />
             Back
           </button>
-          <h1 className="text-4xl text-gray-900 mb-2">Book a Service</h1>
+          <h1 className="text-3xl md:text-4xl text-gray-900 mb-2">Book a Service</h1>
           <p className="text-gray-600">Schedule your service and complete your booking</p>
         </div>
 
@@ -177,9 +177,9 @@ export function BookingPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {/* ── Left / Centre: Booking Form (col-span-2) ── */}
-          <div className="col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-6">
 
             {/* Service Details */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
@@ -232,7 +232,7 @@ export function BookingPage() {
 
               <div>
                 <label className="text-sm text-gray-700 mb-3 block">Choose Time Slot</label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {TIME_SLOTS.map((slot) => (
                     <button
                       key={slot}
@@ -258,7 +258,7 @@ export function BookingPage() {
                 <span>Contact Information</span>
               </h2>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-sm text-gray-700">Full Name</label>
                   <input
@@ -279,7 +279,7 @@ export function BookingPage() {
                   />
                 </div>
 
-                <div className="col-span-2 space-y-2">
+                <div className="md:col-span-2 space-y-2">
                   <label className="text-sm text-gray-700">Service Address</label>
                   <input
                     type="text"
@@ -290,7 +290,7 @@ export function BookingPage() {
                   />
                 </div>
 
-                <div className="col-span-2 space-y-2">
+                <div className="md:col-span-2 space-y-2">
                   <label className="text-sm text-gray-700">Additional Notes <span className="text-gray-400">(Optional)</span></label>
                   <textarea
                     rows={3}
@@ -355,7 +355,7 @@ export function BookingPage() {
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 bg-white transition-all"
                     />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label className="text-sm text-gray-700">Expiry Date</label>
                       <input
@@ -387,8 +387,8 @@ export function BookingPage() {
           </div>
 
           {/* ── Right: Sticky Booking Summary ── */}
-          <div className="col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-8">
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-2xl shadow-lg p-6 lg:sticky lg:top-8">
               <h2 className="text-xl text-gray-900 mb-6">Booking Summary</h2>
 
               <div className="space-y-4 mb-6">

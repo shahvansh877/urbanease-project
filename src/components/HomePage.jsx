@@ -2,7 +2,6 @@ import { Search, Calendar, CheckCircle, Facebook, Twitter, Instagram, Linkedin, 
 import { Link } from 'react-router';
 import { useRef } from 'react'; // Ex No: 3b — useRef
 import { Navigation } from './Navigation';
-import { ImageWithFallback } from './figma/ImageWithFallback';
 
 const steps = [
   {
@@ -43,55 +42,47 @@ export function HomePage() {
 
       {/* ── Hero Section ── */}
       <section id="home" className="bg-gradient-to-b from-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-8 pt-20 pb-32">
-          <div className="grid grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <h1 className="text-6xl text-gray-900">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-12 md:pt-20 pb-16 md:pb-24">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-6xl text-gray-900 leading-tight">
                 Home Services,
                 <span className="block text-blue-600">Made Simple</span>
               </h1>
 
-              <p className="text-xl text-gray-600">
+              <p className="text-lg md:text-xl text-gray-600">
                 Connect with trusted local professionals for all your home service needs.
                 From cleaning to repairs, we've got you covered.
               </p>
-
-              <div className="bg-white rounded-2xl shadow-xl p-3 flex items-center space-x-3">
-                <div className="flex-1 flex items-center space-x-3 px-3">
-                  <Search className="w-5 h-5 text-gray-400" />
-                  {/* ref attached so handleSearchClick can focus this input */}
-                  <input
-                    ref={searchRef}
-                    type="text"
-                    placeholder="Search for a service..."
-                    className="flex-1 py-3 outline-none text-gray-700"
-                  />
-                </div>
-                <button
-                  onClick={handleSearchClick}
-                  className="px-8 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors"
-                >
-                  Search
-                </button>
-              </div>
-
-              <div className="pt-4">
-                <button className="px-10 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors text-lg">
-                  Get Started Today
-                </button>
-              </div>
             </div>
 
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl">
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1600210492493-0946911123ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob21lJTIwaW50ZXJpb3J8ZW58MXx8fHwxNzcwNjYxMzc2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Modern home interior"
-                  className="w-full h-[500px] object-cover"
+            <div className="bg-white rounded-2xl shadow-xl p-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <div className="flex-1 flex items-center space-x-3 px-3">
+                  <Search className="w-5 h-5 text-gray-400" />
+                  {/* ref attached so handleSearchClick can focus this input */}
+                <input
+                  ref={searchRef}
+                  type="text"
+                  placeholder="Search for a service..."
+                  className="flex-1 py-3 outline-none text-gray-700"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-6 space-y-2">
-                <div className="text-4xl text-blue-600">500+</div>
+              <button
+                onClick={handleSearchClick}
+                className="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors"
+              >
+                Search
+              </button>
+            </div>
+
+            <div className="pt-2">
+              <button className="w-full sm:w-auto px-10 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors text-lg">
+                Get Started Today
+              </button>
+            </div>
+            <div className="inline-flex items-center justify-center bg-white rounded-2xl shadow-xl px-6 py-4">
+              <div>
+                <div className="text-3xl md:text-4xl text-blue-600">500+</div>
                 <div className="text-gray-600">Verified Professionals</div>
               </div>
             </div>
@@ -101,15 +92,15 @@ export function HomePage() {
 
       {/* ── How It Works Section ── */}
       <section id="how-it-works" className="bg-white">
-        <div className="max-w-7xl mx-auto px-8 py-24">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl text-gray-900 mb-4">How It Works</h2>
-            <p className="text-xl text-gray-600">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
+          <div className="text-center mb-12 md:mb-20">
+            <h2 className="text-3xl md:text-5xl text-gray-900 mb-4">How It Works</h2>
+            <p className="text-lg md:text-xl text-gray-600">
               Get the help you need in three simple steps
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
@@ -121,14 +112,14 @@ export function HomePage() {
                   )}
 
                   <div className="text-center space-y-6">
-                    <div className="mx-auto w-32 h-32 bg-blue-600 rounded-full flex items-center justify-center shadow-xl">
-                      <Icon className="w-16 h-16 text-white" />
+                    <div className="mx-auto w-24 h-24 md:w-32 md:h-32 bg-blue-600 rounded-full flex items-center justify-center shadow-xl">
+                      <Icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
                     </div>
 
                     <div className="space-y-3">
-                      <div className="text-blue-600 text-xl">Step {step.id}</div>
-                      <h3 className="text-3xl text-gray-900">{step.title}</h3>
-                      <p className="text-lg text-gray-600 leading-relaxed">
+                      <div className="text-blue-600 text-lg md:text-xl">Step {step.id}</div>
+                      <h3 className="text-2xl md:text-3xl text-gray-900">{step.title}</h3>
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -138,9 +129,9 @@ export function HomePage() {
             })}
           </div>
 
-          <div className="mt-20 text-center">
+          <div className="mt-14 md:mt-20 text-center">
             <Link to="/login">
-              <button className="px-12 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors text-lg">
+              <button className="w-full sm:w-auto px-12 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors text-lg">
                 Start Now
               </button>
             </Link>
@@ -150,10 +141,10 @@ export function HomePage() {
 
       {/* ── Footer Section ── */}
       <section id="footer" className="bg-gray-50">
-        <div className="max-w-7xl mx-auto px-8 py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-14 md:py-20">
           <footer className="bg-gray-900 rounded-3xl shadow-2xl overflow-hidden">
-            <div className="px-16 py-16">
-              <div className="grid grid-cols-4 gap-12">
+            <div className="px-6 md:px-16 py-10 md:py-16">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
                 {/* Company Info */}
                 <div className="space-y-6">
                   <div className="flex items-center space-x-2">
@@ -242,13 +233,13 @@ export function HomePage() {
                 </div>
               </div>
 
-              <div className="mt-16 pt-8 border-t border-gray-800">
-                <div className="flex items-center justify-between">
+              <div className="mt-12 md:mt-16 pt-8 border-t border-gray-800">
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                   <p className="text-gray-400">
                     © 2026 UrbanEase. All rights reserved.
                   </p>
 
-                  <div className="flex items-center space-x-6">
+                  <div className="flex flex-wrap items-center gap-4 md:gap-6">
                     <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                       Terms
                     </a>

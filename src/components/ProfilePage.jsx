@@ -175,9 +175,9 @@ export function ProfilePage() {
     <div className="min-h-screen bg-gray-50">
       <Navigation />
 
-      <div className="max-w-7xl mx-auto px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
         <div className="mb-8">
-          <h1 className="text-4xl text-gray-900 mb-2">My Profile</h1>
+          <h1 className="text-3xl md:text-4xl text-gray-900 mb-2">My Profile</h1>
           <p className="text-gray-600">
             {role === 'admin'
               ? 'View your admin profile and manage provider verification history.'
@@ -193,9 +193,9 @@ export function ProfilePage() {
         {loading && <div className="rounded-xl bg-white p-6 shadow text-gray-600">Loading profile details...</div>}
 
         {!loading && (
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
             {/* ── Left Column: Profile Card + Stats ── */}
-            <div className="col-span-1 space-y-6">
+            <div className="lg:col-span-1 space-y-6">
               {/* Profile Card */}
               <div className="bg-white rounded-2xl shadow-lg p-8">
                 <div className="text-center mb-6">
@@ -267,7 +267,7 @@ export function ProfilePage() {
             </div>
 
             {/* ── Right Column: Stats Banner + Edit Form + Booking/Provider History ── */}
-            <div className="col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-6">
 
               {/* Stats Banner */}
               <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl shadow-lg p-6 text-white">
@@ -279,35 +279,35 @@ export function ProfilePage() {
                 </div>
 
                 {role === 'admin' ? (
-                  <div className="flex items-center gap-16">
-                    <div className="pr-8 border-r border-blue-400">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                    <div className="md:pr-8 md:border-r border-blue-400">
                       <div className="text-4xl font-bold">{adminStats.pending + adminStats.approved + adminStats.rejected}</div>
                       <p className="text-blue-100 text-sm mt-1">Total Provider Requests</p>
                     </div>
-                    <div className="flex gap-12">
+                    <div className="flex flex-wrap gap-8 md:gap-12">
                       <div className="text-center"><p className="text-2xl font-semibold">{adminStats.pending}</p><p className="text-blue-100 text-sm mt-1">Pending</p></div>
                       <div className="text-center"><p className="text-2xl font-semibold">{adminStats.approved}</p><p className="text-blue-100 text-sm mt-1">Accepted</p></div>
                       <div className="text-center"><p className="text-2xl font-semibold">{adminStats.rejected}</p><p className="text-blue-100 text-sm mt-1">Rejected</p></div>
                     </div>
                   </div>
                 ) : role === 'serviceProvider' || role === 'provider' ? (
-                  <div className="flex items-center gap-16">
-                    <div className="pr-8 border-r border-blue-400">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                    <div className="md:pr-8 md:border-r border-blue-400">
                       <div className="text-4xl font-bold">{providerStats.total}</div>
                       <p className="text-blue-100 text-sm mt-1">Total Bookings Received</p>
                     </div>
-                    <div className="flex gap-12">
+                    <div className="flex flex-wrap gap-8 md:gap-12">
                       <div className="text-center"><p className="text-2xl font-semibold">{providerStats.upcoming}</p><p className="text-blue-100 text-sm mt-1">Upcoming</p></div>
                       <div className="text-center"><p className="text-2xl font-semibold">{providerStats.completed}</p><p className="text-blue-100 text-sm mt-1">Completed</p></div>
                     </div>
                   </div>
                 ) : (
-                  <div className="flex items-center gap-16">
-                    <div className="pr-8 border-r border-blue-400">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                    <div className="md:pr-8 md:border-r border-blue-400">
                       <div className="text-4xl font-bold">{userStats.total}</div>
                       <p className="text-blue-100 text-sm mt-1">Services Booked</p>
                     </div>
-                    <div className="flex gap-12">
+                    <div className="flex flex-wrap gap-8 md:gap-12">
                       <div className="text-center"><p className="text-2xl font-semibold">{userStats.upcoming}</p><p className="text-blue-100 text-sm mt-1">Upcoming</p></div>
                       <div className="text-center"><p className="text-2xl font-semibold">{userStats.completed}</p><p className="text-blue-100 text-sm mt-1">Completed</p></div>
                       <div className="text-center"><p className="text-2xl font-semibold">{userStats.cancelled}</p><p className="text-blue-100 text-sm mt-1">Cancelled</p></div>
@@ -357,7 +357,7 @@ export function ProfilePage() {
               {/* User — Booking History */}
               {role === 'user' && (
                 <div className="bg-white rounded-2xl shadow-lg p-8">
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
                     <h2 className="text-2xl text-gray-900">My Bookings</h2>
                     <button
                       onClick={() => navigate('/services')}
@@ -367,7 +367,7 @@ export function ProfilePage() {
                     </button>
                   </div>
 
-                  <div className="flex space-x-4 mb-6 border-b border-gray-200">
+                  <div className="flex overflow-x-auto gap-4 mb-6 border-b border-gray-200 pb-1">
                     {[
                       { key: 'all', label: 'All Bookings' },
                       { key: 'upcoming', label: 'Upcoming' },
@@ -405,7 +405,7 @@ export function ProfilePage() {
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-3 gap-4 mb-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                           <div className="flex items-center space-x-2 text-gray-600">
                             <Calendar className="w-4 h-4" />
                             <span className="text-sm">{booking.scheduledDate}</span>
@@ -439,7 +439,7 @@ export function ProfilePage() {
                   <div className="space-y-4">
                     {bookings.map((booking) => (
                       <div key={booking._id} className="border border-gray-200 rounded-xl p-5">
-                        <div className="flex items-start justify-between mb-3">
+                        <div className="flex flex-col sm:flex-row items-start justify-between gap-3 mb-3">
                           <div>
                             <p className="text-lg text-gray-900">{booking.user?.name || 'Customer'}</p>
                             <p className="text-sm text-gray-600">{booking.user?.email || 'N/A'}</p>
@@ -469,7 +469,7 @@ export function ProfilePage() {
                   <div className="space-y-4">
                     {providers.map((provider) => (
                       <div key={provider._id} className="border border-gray-200 rounded-xl p-5">
-                        <div className="flex items-start justify-between mb-3 gap-4">
+                        <div className="flex flex-col md:flex-row items-start justify-between mb-3 gap-4">
                           <div>
                             <p className="text-lg text-gray-900">{provider.name}</p>
                             <p className="text-sm text-gray-600">{provider.email}</p>
@@ -478,7 +478,7 @@ export function ProfilePage() {
                           </div>
 
                           {provider.verificationStatus === 'pending' ? (
-                            <div className="flex items-center gap-2">
+                            <div className="flex flex-wrap items-center gap-2">
                               <button
                                 onClick={() => handleAdminAction(provider._id, 'approve')}
                                 disabled={workingId === provider._id}

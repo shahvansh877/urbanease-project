@@ -72,8 +72,8 @@ export function ProvidersListPage() {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <Navigation />
 
-      <div className="max-w-7xl mx-auto px-8 py-12">
-        <h1 className="text-4xl text-gray-900 mb-2">Choose a Service Provider</h1>
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-12">
+        <h1 className="text-3xl md:text-4xl text-gray-900 mb-2">Choose a Service Provider</h1>
         <p className="text-gray-600 mb-8">Only admin-approved providers are listed here.</p>
 
         <div className="bg-white rounded-2xl shadow p-4 mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -104,7 +104,7 @@ export function ProvidersListPage() {
           <div className="bg-white rounded-2xl shadow p-8 text-gray-600">No approved providers found.</div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {filtered.map((provider) => {
             const providerService = normalizeServiceName(provider.serviceCategory);
 

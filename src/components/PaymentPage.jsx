@@ -50,8 +50,8 @@ export function PaymentPage() {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <Navigation />
 
-      <div className="max-w-6xl mx-auto px-8 py-12">
-        <h1 className="text-4xl text-gray-900 mb-2">Payments</h1>
+      <div className="max-w-6xl mx-auto px-4 md:px-8 py-10 md:py-12">
+        <h1 className="text-3xl md:text-4xl text-gray-900 mb-2">Payments</h1>
         <p className="text-gray-600 mb-6">Pay for your bookings and track payment status.</p>
 
         <div className="bg-blue-600 text-white rounded-2xl p-6 mb-6">
@@ -70,7 +70,7 @@ export function PaymentPage() {
         <div className="space-y-4">
           {bookings.map((booking) => (
             <div key={booking._id} className="bg-white rounded-2xl shadow p-5 border border-gray-100">
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                   <h2 className="text-xl text-gray-900">{booking.serviceName}</h2>
                   <p className="text-gray-600 text-sm">Provider: {booking.provider?.name || 'N/A'}</p>
@@ -80,7 +80,7 @@ export function PaymentPage() {
                   {booking.transactionId && <p className="text-gray-500 text-xs">Transaction: {booking.transactionId}</p>}
                 </div>
 
-                <div className="text-right">
+                <div className="text-left md:text-right">
                   <p className="text-2xl text-blue-600 mb-2">₹{booking.amount}</p>
                   {booking.paymentStatus !== 'paid' ? (
                     <button

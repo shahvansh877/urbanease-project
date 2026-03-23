@@ -18,44 +18,44 @@ export function Navigation() {
 
   return (
     <nav className="bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-wrap items-center justify-between gap-3">
         <Link to="/" className="flex items-center space-x-2">
           <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
             <span className="text-white text-xl">U</span>
           </div>
-          <span className="text-2xl text-gray-900">UrbanEase</span>
+          <span className="text-xl md:text-2xl text-gray-900">UrbanEase</span>
         </Link>
         
         {isAuthenticated ? (
           // Authenticated Navigation
-          <div className="flex items-center space-x-6">
-            <Link to="/services" className="text-gray-700 hover:text-blue-600 transition-colors">
+          <div className="w-full md:w-auto mt-2 md:mt-0 flex flex-wrap items-center gap-3 md:gap-6">
+            <Link to="/services" className="text-sm md:text-base text-gray-700 hover:text-blue-600 transition-colors">
               Services
             </Link>
             {userType === 'user' && (
-              <Link to="/services" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <Link to="/services" className="text-sm md:text-base text-gray-700 hover:text-blue-600 transition-colors">
                 Book Now
               </Link>
             )}
             {userType === 'user' && (
-              <Link to="/payments" className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors">
+              <Link to="/payments" className="flex items-center space-x-1 text-sm md:text-base text-gray-700 hover:text-blue-600 transition-colors">
                 <CreditCard className="w-4 h-4" />
                 <span>Payments</span>
               </Link>
             )}
             {(userType === 'serviceProvider' || userType === 'provider') && (
-              <Link to="/provider-dashboard" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <Link to="/provider-dashboard" className="text-sm md:text-base text-gray-700 hover:text-blue-600 transition-colors">
                 Provider Dashboard
               </Link>
             )}
             {userType === 'admin' && (
-              <Link to="/admin" className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors">
+              <Link to="/admin" className="flex items-center space-x-1 text-sm md:text-base text-gray-700 hover:text-blue-600 transition-colors">
                 <Shield className="w-4 h-4" />
                 <span>Admin Dashboard</span>
               </Link>
             )}
             
-            <div className="flex items-center space-x-4 ml-4 pl-4 border-l border-gray-300">
+            <div className="flex items-center gap-2 md:gap-4 md:ml-2 md:pl-4 md:border-l border-gray-300">
               <button className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors">
                 <Bell className="w-5 h-5" />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
@@ -63,10 +63,10 @@ export function Navigation() {
               
               <Link 
                 to="/profile" 
-                className="flex items-center space-x-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+                className="flex items-center space-x-2 px-3 md:px-4 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
               >
                 <User className="w-5 h-5" />
-                <span>{`Hi, ${firstName}!`}</span>
+                <span className="hidden sm:inline">{`Hi, ${firstName}!`}</span>
               </Link>
               
               <button className="p-2 text-gray-700 hover:text-red-600 transition-colors" title="Logout" onClick={handleLogout}>
@@ -76,11 +76,11 @@ export function Navigation() {
           </div>
         ) : (
           // Default Navigation (Not Authenticated)
-          <div className="flex items-center space-x-4">
-            <Link to="/login" className="px-5 py-2 text-gray-700 hover:text-blue-600 transition-colors">
+          <div className="w-full md:w-auto mt-2 md:mt-0 flex items-center justify-start md:justify-end gap-3 md:gap-4">
+            <Link to="/login" className="px-4 md:px-5 py-2 text-gray-700 hover:text-blue-600 transition-colors">
               Login
             </Link>
-            <Link to="/signup" className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+            <Link to="/signup" className="px-5 md:px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
               Sign Up
             </Link>
           </div>
