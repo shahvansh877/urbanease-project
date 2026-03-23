@@ -207,7 +207,7 @@ export function BookingConfirmation() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navigation />
-        <div className="max-w-4xl mx-auto px-8 py-12">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:py-12">
           <p className="text-gray-600">Loading booking confirmation...</p>
         </div>
       </div>
@@ -218,7 +218,7 @@ export function BookingConfirmation() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navigation />
-        <div className="max-w-4xl mx-auto px-8 py-12">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:py-12">
           <p className="text-red-600">{error || 'Booking not found.'}</p>
           <button
             onClick={() => navigate('/services')}

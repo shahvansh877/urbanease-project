@@ -6,10 +6,10 @@ export function FooterPage() {
     <div className="min-h-screen bg-gray-50">
       <Navigation />
       
-      <div className="max-w-7xl mx-auto px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20">
         <footer className="bg-gray-900 rounded-3xl shadow-2xl overflow-hidden">
-          <div className="px-16 py-16">
-            <div className="grid grid-cols-4 gap-12">
+          <div className="px-6 md:px-16 py-10 md:py-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
               {/* Company Info */}
               <div className="space-y-6">
                 <div className="flex items-center space-x-2">
@@ -98,13 +98,13 @@ export function FooterPage() {
               </div>
             </div>
             
-            <div className="mt-16 pt-8 border-t border-gray-800">
-              <div className="flex items-center justify-between">
+            <div className="mt-12 md:mt-16 pt-8 border-t border-gray-800">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <p className="text-gray-400">
                   © 2026 UrbanEase. All rights reserved.
                 </p>
                 
-                <div className="flex items-center space-x-6">
+                <div className="flex flex-wrap items-center gap-4 md:gap-6">
                   <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     Terms
                   </a>

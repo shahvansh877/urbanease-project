@@ -59,7 +59,7 @@ export function AdminDashboard() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navigation />
-        <div className="max-w-4xl mx-auto p-8 text-red-600">Access denied. Admin only.</div>
+        <div className="max-w-4xl mx-auto p-4 md:p-8 text-red-600">Access denied. Admin only.</div>
       </div>
     );
   }
@@ -67,8 +67,8 @@ export function AdminDashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <Navigation />
-      <div className="max-w-7xl mx-auto px-8 py-12">
-        <h1 className="text-4xl text-gray-900 mb-2">Admin Dashboard</h1>
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
+        <h1 className="text-3xl md:text-4xl text-gray-900 mb-2">Admin Dashboard</h1>
         <p className="text-gray-600 mb-8">Accept or reject service provider registrations.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -83,7 +83,7 @@ export function AdminDashboard() {
         <div className="space-y-4">
           {providers.map((provider) => (
             <div key={provider._id} className="bg-white rounded-2xl shadow p-6 border border-gray-100">
-              <div className="flex items-start justify-between gap-6">
+              <div className="flex flex-col md:flex-row items-start justify-between gap-4 md:gap-6">
                 <div>
                   <h2 className="text-2xl text-gray-900">{provider.name}</h2>
                   <p className="text-gray-600">Company: {provider.companyName || 'Not provided'}</p>
@@ -95,7 +95,7 @@ export function AdminDashboard() {
                 </div>
 
                 {provider.verificationStatus === 'pending' ? (
-                  <div className="flex gap-3">
+                  <div className="flex flex-wrap gap-3">
                     <button
                       onClick={() => handleAction(provider._id, 'approve')}
                       disabled={workingId === provider._id}

@@ -27,15 +27,15 @@ export function HowItWorks() {
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      <div className="max-w-7xl mx-auto px-8 py-20">
-        <div className="text-center mb-20">
-          <h1 className="text-5xl text-gray-900 mb-4">How It Works</h1>
-          <p className="text-xl text-gray-600">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20">
+        <div className="text-center mb-12 md:mb-20">
+          <h1 className="text-3xl md:text-5xl text-gray-900 mb-4">How It Works</h1>
+          <p className="text-base md:text-xl text-gray-600">
             Get the help you need in three simple steps
           </p>
         </div>
         
-        <div className="grid grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
@@ -47,14 +47,14 @@ export function HowItWorks() {
                 )}
                 
                 <div className="text-center space-y-6">
-                  <div className="mx-auto w-32 h-32 bg-blue-600 rounded-full flex items-center justify-center shadow-xl">
-                    <Icon className="w-16 h-16 text-white" />
+                  <div className="mx-auto w-24 h-24 md:w-32 md:h-32 bg-blue-600 rounded-full flex items-center justify-center shadow-xl">
+                    <Icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
                   </div>
                   
                   <div className="space-y-3">
-                    <div className="text-blue-600 text-xl">Step {step.id}</div>
-                    <h3 className="text-3xl text-gray-900">{step.title}</h3>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <div className="text-blue-600 text-lg md:text-xl">Step {step.id}</div>
+                    <h3 className="text-2xl md:text-3xl text-gray-900">{step.title}</h3>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -64,8 +64,8 @@ export function HowItWorks() {
           })}
         </div>
         
-        <div className="mt-20 text-center">
-          <button className="px-12 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors text-lg">
+        <div className="mt-14 md:mt-20 text-center">
+          <button className="w-full sm:w-auto px-12 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors text-lg">
             Start Now
           </button>
         </div>
