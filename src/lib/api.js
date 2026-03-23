@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+const API_BASE_URL = https://urbanease-project.onrender.com || '';
 
 async function apiRequest(path, { method = 'GET', body, token } = {}) {
   const headers = {

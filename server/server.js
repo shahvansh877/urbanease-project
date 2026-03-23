@@ -9,20 +9,29 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    process.env.CLIENT_URL
+  ],
   credentials: true,
 }));
+
 app.use(express.json());
 
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/providers", require("./routes/providers"));
 app.use("/api/bookings", require("./routes/bookings"));
 
+app.get("/", (req, res) => {
+  res.send("UrbanEase Backend Running 🚀");
+});
+
 app.get("/api/health", (req, res) => {
   res.json({ success: true, message: "UrbanEase API is running 🚀" });
 });
 
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
